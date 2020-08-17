@@ -7,6 +7,7 @@
 <body>
 <h3>JavaScript 对象访问器（getter及setter）</h3>
 <p id = "demo"></p>
+<p id = "xx"></p>
 <script>
     let person = {
         firstname: "Bill",
@@ -19,12 +20,18 @@
         language: "en",
         set lang(value) { // 使用 set 设置属性
             this.language = value;
+        },
+
+        get fullName() {
+            return this.firstname + " " + this.lastname;
         }
     };
 
     person.lang = "zh";
     // document.getElementById("demo").innerHTML = person.lang;
     document.getElementById("demo").innerHTML = person.language;
+    document.getElementById("xx").innerHTML = person.fullName;
+    // 使用get函数，以属性形式访问 fullName：person.fullName
 </script>
 </body>
 </html>

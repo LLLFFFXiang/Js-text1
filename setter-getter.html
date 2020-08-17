@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>JavaScript 对象访问器（getter及setter）</h3>
+<p id = "demo"></p>
+<script>
+    let person = {
+        firstname: "Bill",
+        lastname: "Gates",
+        age: "62",
+        // language: "en",
+        // get lang() {  // 使用 get 显示来自对象的数据：
+        //     return this.language;
+        // }
+        language: "en",
+        set lang(value) { // 使用 set 设置属性
+            this.language = value;
+        }
+    };
+
+    person.lang = "zh";
+    // document.getElementById("demo").innerHTML = person.lang;
+    document.getElementById("demo").innerHTML = person.language;
+</script>
+</body>
+</html>

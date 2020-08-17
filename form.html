@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>输入数字并点击提交：</p>
+
+<input id="id1" type="number" min="100" max="300" required/>
+<button onclick="myFunction1()">提交</button>
+<p>如果该数字小于 100 或大于 300，将显示错误消息。</p>
+<p id="demo"></p>
+
+<input id="id2" type="number" max="400"/>
+<button onclick="myFunction2()">提交</button>
+<p>如果数字大于400，将显示值太大</p>
+<p id="xx"></p>
+
+<script>
+    function myFunction1() {
+        let a = document.getElementById("id1");
+        if (!a.checkValidity()) {  // 返回 true，如果 input 元素包含有效数据
+            document.getElementById("demo").innerHTML = a.validationMessage;
+            // 包含当 validity 为 false 时浏览器显示的消息。
+        } else {
+            document.getElementById("demo").innerHTML = "输入有效";
+        }
+    }
+
+    function myFunction2() {
+        let txt = "";
+        if (document.getElementById("id2").validity.rangeOverflow) {
+            // 设置为 true，如果元素值大于 max 属性。rangeUnderflow为小于其 min 属性
+            txt = "值太大";
+        } else {
+            txt = "输入有效";
+        }
+        document.getElementById("xx").innerHTML = txt;
+    }
+</script>
+</body>
+</html>

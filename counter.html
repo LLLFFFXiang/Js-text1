@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>一个计数器实例</h3>
+<p id="demo"></p>
+<script>
+    let obj = {
+        counter: 0,
+        get reset() {
+            this.counter = 0;
+        },
+        get increment() {
+            this.counter++;
+        },
+        get decrement() {
+            this.counter--;
+        },
+        set add(value) {
+            this.counter += value;
+        },
+        set subtract(value) {
+            this.counter -= value;
+        }
+    };
+    obj.reset;
+    obj.add = 5;
+    obj.subtract = 1;
+    obj.increment;
+    obj.decrement;
+    // Object.defineProperty()
+    document.getElementById("demo").innerHTML = obj.counter;
+</script>
+</body>
+</html>

@@ -12,11 +12,11 @@
         let ul = document.getElementById("ul");
         let dot = document.getElementById("dot");
         let a = document.getElementsByTagName("a");
-        let num = document.getElementsByTagName("img").length;
+        let num = document.getElementsByTagName("img").length; // 获取图片数组长度
         let index = 0;
         let timer = null;
-        ul.style.width = num * 540 + "px";
-        dot.style.left = 540 / 2 - num * 18 / 2 + "px";
+        ul.style.width = num * 540 + "px"; // 设置图片宽度
+        dot.style.left = 540 / 2 - num * 18 / 2 + "px";  // 设置导航点
         a[0].style.backgroundColor = "black";
 
         function setA(func) {

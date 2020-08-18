@@ -10,7 +10,7 @@
     position: relative;
     top: 200px;
     left: 300px;
-    overflow: hidden;
+    overflow: hidden;  //
 }
 
 ul{
@@ -19,7 +19,7 @@ ul{
 }
 
 li{
-    list-style: none;
+    list-style: none;  // 去除列表符号
     border-left: 5px #5adcfd solid;
     border-right: 5px #33aaf8 solid;
     float: left;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+    //箭头函数体左边的情况
+    //1.没有形参时
+    // let foo = () => console.log(111)
+    // foo()
+    //2.一个形参且没有形参默认值时(小括号能够省略)
+    // let foo = a => console.log(a)
+    // foo('aa')
+    //3.两个及两个以上形参时，小括号不能省略
+    // let foo = (a, b) => console.log(a, b)
+    // foo('aa', 'bb')
+    //箭头函数体右边的情况
+    //1.函数只有一条语句或者表达式时{}可以省略, 此时会自动返回语句执行结果或者表达式的结果
+    // let foo = (a, b) => a + b
+    // console.log(foo(1,2))//3
+    //2.函数不止一条语句或者表达式时
+    let foo = (a, b) => {
+        a += 'a'
+        b += 'b'
+        return a + b
+    }
+    document.getElementById("demo").innerHTML = foo(1,2);
+</script>
+</body>
+</html>

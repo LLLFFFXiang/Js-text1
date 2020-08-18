@@ -15,7 +15,7 @@
         this.sex = sex;
     }
     Person.prototype.language = "English";  // prototype 属性允许为对象构造器添加新属性
-    Person.prototype.name = function() {
+    Person.prototype.name = function() {  // 也可为对象构造器添加方法
         return this.firstName + this.lastName;
     };
     let myPerson = new Person("li", "jinjin", 18,"famale");

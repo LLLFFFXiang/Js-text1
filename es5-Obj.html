@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>ES5新的对象方法</h3>
+<p id="demo"></p>
+<p id="xx"></p>
+<script>
+    let person = {
+        firstname: "xiao",
+        lastname: "zan",
+        age: 28,
+        language: "En",
+    }
+    Object.defineProperty(person, "language", {value:"Chinese",
+        enumerable:false});  // 更改对象属性，使其不可枚举
+    Object.preventExtensions(person); // 阻止向对象添加属性
+    console.log(Object.isExtensible(person)); // 如果可将属性添加到对象，则返回true, 否则false
+    Object.seal(person); // 阻止对象更改属性
+    console.log(Object.isSealed(person)); //// 如果对象被密封，则返回true, 否则false
+    Object.freeze(person); // 防止对对象进行任何更改
+    console.log(Object.isFrozen(person)); // 如果对象被冻结，则返回true, 否则false
+    console.log(person.language);
+    document.getElementById("demo").innerHTML =
+        Object.getOwnPropertyNames(person); // 返回属性数组
+    document.getElementById("xx").innerHTML = Object.keys(person); // // 以数组返回所有可枚举的属性
+</script>
+</body>
+</html>

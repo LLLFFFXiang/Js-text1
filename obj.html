@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>JavaScript对象原型</h3>
+<p id="demo"></p>
+<script>
+    function Person(first, last, age, sex) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.sex = sex;
+    }
+    Person.prototype.language = "English";  // prototype 属性允许为对象构造器添加新属性
+    Person.prototype.name = function() {
+        return this.firstName + this.lastName;
+    };
+    let myPerson = new Person("li", "jinjin", 18,"famale");
+    document.getElementById("demo").innerHTML = myPerson.name() + " "
+        + "can speak" + myPerson.language;
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义遍历数组</title>
+</head>
+
+<body>
+<script>
+    const banji = {
+        name: "3班",
+        stus: [
+            'lili',
+            'bob' ,
+            'shely'
+        ],
+        [Symbol.iterator]() {
+            let index = 0;
+            let _this = this;
+            return {
+                next: function () {
+                    if (index < _this.stus.length) {
+                        const result = { value: _this.stus[index], done: false}
+                        index++;
+                        return result;
+                    }else {
+                        return  {
+                            value: undefined,done: true
+                        };
+                    }
+                }
+            }
+        }
+    }
+
+    for (let v of banji) {
+        console.log(v);
+    }
+</script>
+</body>
+</html>

@@ -8,43 +8,16 @@
 </head>
 <body>
 <script>
-    window.onload = function() {
+    window.onload = function() {  // window.onload:等整个页面内容全部加载完毕
         let ul = document.getElementById("ul");
         let dot = document.getElementById("dot");
         let a = document.getElementsByTagName("a");
-        let num = document.getElementsByTagName("img").length; // 获取图片数组长度
+        let num = document.getElementsByTagName("img").length; // 获取图片个数，即数组长度
         let index = 0;
         let timer = null;
         ul.style.width = num * 540 + "px"; // 设置图片宽度
-        dot.style.left = 540 / 2 - num * 18 / 2 + "px";  // 设置导航点
+        dot.style.left = 540 / 2 - num * 18 / 2 + "px";  // 设置导航点位置
         a[0].style.backgroundColor = "black";
-
-        function setA(func) {
-            move(ul, (-index * 540) - 5, 30, 1, function () {
-                func && func();
-                for (var i = 0; i < a.length; i++) {
-                    a[i].style.backgroundColor = "";
-                }
-                a[index].style.backgroundColor = "black";
-            });
-        }
-
-        function change() {
-            timer = setInterval(function () {
-                index++;
-                index %= 6;
-                setA(function () {
-                    if (index == 5) {
-                        index = 0;
-                        ul.style.left = "-5px";
-                    }
-                });
-            }, 3000);
-        }
-
-        function autoChange() {
-            change();
-        }
 
         function clickChange() {
             setA(function () {
@@ -53,15 +26,44 @@
             });
         }
 
+        function setA(func) {  // 设置未选中的a
+            // 使用move函数切换图片
+            move(ul, (-index * 540) - 5, 30, 1, function () {  //  鼠标移入效果
+                func && func();
+                // 遍历所有a
+                for (let i = 0; i < a.length; i++) {
+                    a[i].style.backgroundColor = "";
+                }
+                a[index].style.backgroundColor = "black";
+            });
+        }
+
         autoChange();
-        dot.onclick = function(e){
+        dot.onclick = function(e){  // 给所有导航超链接绑定响应函数
             e = e || window.event;
-            var target = e.target;
-            if(target.nodeName == "A"){
-                index = parseInt(target.id);
+            let target = e.target;
+            if(target.nodeName == "A"){ // 获取事件触发元素
+                index = parseInt(target.id); // 获取
                 clickChange();
             }
         };
+
+        function autoChange() {  // 开启自动切换
+            change();
+        }
+
+        function change() {
+            timer = setInterval(function () { // 通过定时器
+                index++; // 索引自增
+                index %= 6; // 注 避免index一直自增
+                setA(function () {
+                    if (index == 5) {
+                        index = 0;  // 回到第一张
+                        ul.style.left = "-5px";  // 通过css将最后一张切换为第一张
+                    }
+                });
+            }, 2000);
+        }
     }
 </script>
 

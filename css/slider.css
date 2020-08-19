@@ -10,7 +10,7 @@
     position: relative;
     top: 200px;
     left: 300px;
-    overflow: hidden;  //
+    overflow: hidden;  // 裁剪溢出内容
 }
 
 ul{

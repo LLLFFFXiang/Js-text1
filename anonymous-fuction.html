@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>箭头函数的基础使用</title>
+    <style>
+        div {
+            width:200px;
+            height: 200px;
+            background: #52adcb;
+        }
+    </style>
 </head>
 <body>
-<p id="demo"></p>
+
+<div id="ad"></div>
 
 <script>
+    let ad = document.getElementById("ad");
+
+    ad.addEventListener("click", function () {
+        let _this = this; // 保存this的值
+        setTimeout(() => {
+            _this.style.background = "pink";
+        }, 2000);
+    });
+
+    const arr = [1,6,5,10,8];
+    const result = arr.filter(item => item % 2 === 0);
+    console.log(result);
     //箭头函数体左边的情况
     //1.没有形参时
     // let foo = () => console.log(111)
@@ -23,12 +43,13 @@
     // let foo = (a, b) => a + b
     // console.log(foo(1,2))//3
     //2.函数不止一条语句或者表达式时
-    let foo = (a, b) => {
-        a += 'a'
-        b += 'b'
-        return a + b
-    }
-    document.getElementById("demo").innerHTML = foo(1,2);
+    // let foo = (a, b) => {
+    //     a += 'a';
+    //     b += 'b';
+    //     return a + b;
+    // }
+    // document.getElementById("demo").innerHTML = foo(1,2);
+
 </script>
 </body>
 </html>

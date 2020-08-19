@@ -1,0 +1,50 @@
+html ,body ,div ,ul ,li{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+body{
+    padding: 100px;
+}
+.tab .tab-h{
+    height: 30px;
+    width: 500px;
+    position: relative;
+    z-index: 2;
+}
+.tab .tab-h .tab-h-item{
+    float: left;
+    background-color: #eee;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+.tab .tab-h li.active {
+    border-bottom-color: white;
+    color: red;
+    background-color: white;
+}
+
+.tab .tab-h .tab-h-item  a{
+    color: #333;
+    text-decoration: none;
+    width: 100px;
+    display: block;
+    line-height: 28px;
+    text-align: center;
+}
+.tab .tab-b{
+    width: 500px;
+    border: 1px solid #ccc;
+    position: relative;
+    z-index: 1;
+    top:-1px;
+}
+.tab-b-item{
+    display: none;
+    height: 300px;
+}
+.tab-b div.active{
+    display: block;
+}

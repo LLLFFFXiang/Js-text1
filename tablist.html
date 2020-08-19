@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./tablist.css"/>
+</head>
+<body>
+<div class="tab">
+    <div class="tab-h">
+        <ul class="tab-h-list">
+            <li index='0' class="tab-h-item active"><a href="javascript:void(0)">新闻</a></li>
+            <li index='1' class="tab-h-item"><a href="javascript:void(0)">地图</a></li>
+            <li index='2' class="tab-h-item"><a href="javascript:void(0)">视频</a></li>
+            <li index='3' class="tab-h-item"><a href="javascript:void(0)">贴吧</a></li>
+        </ul>
+    </div>
+
+    <div class="tab-b">
+        <div index='0' class="tab-b-item active">此处应为新闻列表</div>
+        <div index='1' class="tab-b-item">地图</div>
+        <div index='2' class="tab-b-item">一大堆视频</div>
+        <div index='3' class="tab-b-item">贴吧</div>
+    </div>
+</div>
+<script>
+    window.onload = function () { // window.onload:等整个页面内容全部加载完毕
+        let ulList = document.querySelector('.tab-h-list')  // 选择tab-h-list返回
+        let liItem = ulList.querySelectorAll('li') // 返回全部li
+        let divList = document.querySelector('.tab-b').querySelectorAll('div'); // 同
+
+        console.log(ulList,'ulList');
+        ulList.addEventListener('click', function (e) {  // 添加事件绑定
+            for (let i = 0; i < liItem.length; i++) {  //每次点击时都将所有内容class的active去掉
+                liItem[i].className = 'tab-h-item';
+                divList[i].className = 'tab-b-item';
+            }
+            let tar = e.target;
+            if (tar == ulList) {  //此处相当于是用了事件委托，免得要给每个子li元素绑定事件
+                return;
+            } else if (tar.href) {
+                let parentLi = tar.parentElement;
+                parentLi.className = 'tab-h-item active';
+                console.log(parentLi.getAttribute('index'));
+                divList[parseInt(parentLi.getAttribute('index'))].className = 'tab-b-item active';
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

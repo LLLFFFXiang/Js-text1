@@ -8,8 +8,8 @@
 <script>
     // 1.数组去重
     let arr = [1,2,2,4,6,4,8,6,10];
-    // let result = [...new Set(arr)];
-    // console.log(result);
+    let result = [...new Set(arr)];
+    console.log(result);
 
     // 2.交集
     let arr1 = [1,3,4,8];
@@ -31,8 +31,8 @@
     // console.log(union);
 
     // 4.差集
-    let diff = [...new Set(arr)].filter(item => !(new Set(arr1).has(item)));
-    console.log(diff);
+    // let diff = [...new Set(arr)].filter(item => !(new Set(arr1).has(item)));
+    // console.log(diff);
 </script>
 </body>
 </html>

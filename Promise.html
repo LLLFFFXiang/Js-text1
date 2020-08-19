@@ -6,22 +6,27 @@
 </head>
 <body>
 <script>
-    // 实例化Promise对象
+    // // 实例化Promise对象
     // const p = new Promise(function(resolve, reject) {
     //     setTimeout(function () {
-    //         // let data = "用户数据";
-    //         // resolve(data);
+    //         let data = "用户数据";
+    //         resolve(data);
     //
-    //         let err = "数据读取失败";
-    //         reject(err);
+    //         // let err = "数据读取失败";
+    //         // reject(err);
     //     }, 1000);
     // });
-    //
-    // p.then(function (value){
+    // // then方法的返回结果是 Promise 对象，对象状态由回调函数的执行结果决定
+    // // 如果回调函数中返回的结果是非 Promise 类型的属性，状态为成功，返回值为对象的成功的值
+    // const result = p.then(value => {
     //     console.log(value);
-    // }, function(reason) {
+    //     return '123';
+    // },reason => {
     //     console.log(reason);
     // })
+    //
+    // // then 可链式回调
+    // console.log(result);
 
     const p =new Promise((resolve, reject) => {
 

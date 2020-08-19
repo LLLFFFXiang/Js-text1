@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Symbol简单使用</h3>
+<script>
+    let game ={
+        name: 4399,
+        user: 500
+    }
+    let methods = {
+        up: Symbol(),
+        down: Symbol()
+    };
+
+    game[methods.up] = function(){
+        console.log("上升");
+    }
+
+    game[methods.down] = function(){
+        console.log("下降");
+    }
+
+    console.log(game);
+</script>
+</body>
+</html>
